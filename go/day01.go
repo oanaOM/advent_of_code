@@ -1,4 +1,4 @@
-package main
+package day01
 
 import (
 	"fmt"
@@ -49,7 +49,7 @@ func main() {
 	// multiply 2 number which sum is 2020
 	for n, i := range numbers {
 		if index, ok := numbers[2020-n]; index != i && ok {
-			fmt.Println("Product of the two entries that sum to 2020 is: ", n * (2020 - n))
+			fmt.Println("Product of the two entries that sum to 2020 is: ", n*(2020-n))
 			break
 		}
 	}
@@ -63,7 +63,7 @@ func main() {
 				continue
 			}
 			if index, ok := numbers[2020-sumTemp]; ok && index != i && index != j {
-				fmt.Println("Product of the three entries that sum to 2020 is: ", n * m * (2020 - sumTemp))
+				fmt.Println("Product of the three entries that sum to 2020 is: ", n*m*(2020-sumTemp))
 				break
 			}
 		}
