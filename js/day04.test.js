@@ -1139,7 +1139,7 @@ hcl:#fffffd ecl:brn
 
 ecl:brn eyr:2026 iyr:2017 hgt:75in
 pid:745302991 byr:1969 hcl:#7394c7`;
-describe("Part II", () => {
+describe("Part I && Part II", () => {
   it("242 passports are valid", () => {
     assert.strictEqual(passport.present(input).length, 242);
   });
