@@ -6,7 +6,7 @@ fs.readFile("./input.txt", "utf8", (err, data) => {
     return;
   }
 
-  //console.log(partOne(data));
+  console.log(partOne(data));
   console.log(partTwo(data));
 });
 
@@ -78,4 +78,13 @@ function partTwo(data) {
       }
     }
   }
+}
+
+
+function test(data){
+  data = data.split("\n\n");
+  let boards = data.map((board) =>
+    board.split("\n").map((row) => row.trim().split(/\s+/).map(Number))
+  );
+  console.log(boards)
 }
