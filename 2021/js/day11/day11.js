@@ -3,8 +3,8 @@ var fs = require("fs");
 fs.readFile("./input.txt", "utf8", (err, data) => {
   if (err) console.error(err);
 
-  // console.log(partOne(data));
-  console.log(partTwo(data));
+  console.log("Part A:", partOne(data));
+  console.log("Part B:", partTwo(data));
 });
 
 function partOne(data) {
@@ -49,15 +49,8 @@ function partOne(data) {
         });
       });
     }
-    // console.log(flashed)
-    // console.log("-----------")
-
-    // console.log(step, dumbos)
   }
-
   return flashes;
-
-  // console.log(dumbos)
 }
 
 function partTwo(data) {
@@ -113,10 +106,4 @@ function partTwo(data) {
   }
 
   return allDumbosFlash;
-}
-
-function flatten(arr) {
-  return arr.reduce(function (previousValue, currentValue) {
-    return previousValue.concat(currentValue);
-  }, []);
 }
