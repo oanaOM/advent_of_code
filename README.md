@@ -1,3 +1,3 @@
-# Advent of code /*2020*/
+# Advent of code /_2020 - 2023_/
 
-Following: https://adventofcode.com/2020/about
+My adventures with Advent of Code
