@@ -3,9 +3,6 @@ export function partOne(data) {
   const times = score[0].split("Time: ")[1].match(/\d+/g);
   const distances = score[1].split("Distance: ")[1].match(/\d+/g);
 
-  console.log(times);
-  console.log(distances);
-
   const wins: number[] = [];
 
   times.forEach((time, i) => {

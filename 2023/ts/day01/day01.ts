@@ -18,7 +18,7 @@ export function partOne(data) {
     }
   });
 
-  console.log("-arrayOfNumbers: ", arrayOfNumbers);
+  // console.log("-arrayOfNumbers: ", arrayOfNumbers);
 
   arrayOfNumbers.map((e) => (sum += parseInt(e)));
 
