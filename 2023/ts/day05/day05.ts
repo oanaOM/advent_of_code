@@ -40,8 +40,8 @@ export function partOne(input, seeds: number[]) {
     }
   });
 
-  console.log("--mapping: ", mapping);
-  console.log("--locations: ", mapping["humidity-to-location"]);
+  // console.log("--mapping: ", mapping);
+  // console.log("--locations: ", mapping["humidity-to-location"]);
 
   return Math.min(...mapping["humidity-to-location"]);
 }
@@ -115,43 +115,48 @@ export function findSeedRange(input: number[]) {
 }
 
 export function partTwo(input, locations: number[]) {
-  const almanac = input.split("\n\n");
+  const almanac = input.split("\n\n").reverse();
+
   let mapping: PhaseMapping = {
-    seed: [],
-    "seed-to-soil": [],
-    "soil-to-fertilizer": [],
-    "fertilizer-to-water": [],
-    "water-to-light": [],
-    "light-to-temperature": [],
-    "temperature-to-humidity": [],
-    locations,
+    locations: locations,
+    "location-to-humidity": [],
+    "humidity-to-temperature": [],
+    "temperature-to-light": [],
+    "light-to-water": [],
+    "water-to-fertilizer": [],
+    "fertilizer-to-soil": [],
+    "soil-to-seed": [],
   };
 
-  Object.keys(mapping)
-    .reverse()
-    .forEach((phase, i) => {
-      if (i < 7) {
-        console.log("---phase: ", phase);
-        console.log("---almanac[i] ", mapping[phase]);
-        console.log("#######");
-        mapping[phase].forEach((source) => {
-          // const sourceToDest = findSourceToDestination(
-          //   almanac.reverse()[i],
-          //   Number(source)
-          // );
-          // const phaseName = sourceToDest.phase;
-          // console.log("--sourceToDest: ", source);
-          // if (sourceToDest.destination.length > 0) {
-          //   // console.log("---HEEEY", sourceToDest.destination);
-          //   mapping[phaseName].push(sourceToDest.destination[0]);
-          // } else {
-          //   mapping[phaseName].push(source);
-          // }
-        });
-      }
-    });
+  // console.log("--almanac: ", almanac);
 
-  // console.log("--mapping: ", Object.keys(mapping).reverse());
+  Object.keys(mapping).forEach((phase, i) => {
+    if (i < 7) {
+      console.log("---phase ", phase);
+      mapping[phase].forEach((source) => {
+        // const sourceToDest = findSourceToDestination(
+        //   almanac[i],
+        //   Number(source)
+        // );
 
-  return Math.min(...mapping["humidity-to-location"]);
+        console.log("---", source);
+
+        // const phaseName = sourceToDest.phase;
+        // console.log("--sourceToDest:L ", sourceToDest.destination, phaseName);
+        // // console.log("--phaseName: ", mapping[phaseName]);
+
+        // if (sourceToDest.destination.length > 0) {
+        //   // console.log("---HEEEY", sourceToDest.destination);
+        //   mapping[phaseName].push(sourceToDest.destination[0]);
+        // } else {
+        //   mapping[phaseName].push(source);
+        // }
+      });
+    }
+  });
+
+  // console.log("--mapping: ", mapping);
+  // console.log("--locations: ", mapping["humidity-to-location"]);
+
+  return Math.min(...mapping["soil-to-seed"]);
 }
